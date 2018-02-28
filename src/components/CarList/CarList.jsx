@@ -1,6 +1,7 @@
 import React from 'react';
 import CarRow from './CarRow/CarRow';
 import styles from './CarList.css';
+import Header from './Header/Header'
 
 const CarList = (props) => {
 
@@ -17,6 +18,11 @@ const CarList = (props) => {
 
   return (
     <table className={styles.CarList}>
+
+      <Header 
+        filters={props.filters}
+        toggleSort={props.toggleSort}
+      />
 
       <tbody>
         {carRows}

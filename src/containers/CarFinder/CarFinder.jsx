@@ -14,13 +14,43 @@ class CarFinder extends Component {
       date: null
     },
     searchText: '',
-    selectedCarKey: null
+    selectedCarKey: null,
   }
 
   selectCar = (selectedCarKey) => {
     this.setState({
       selectedCarKey
     });
+  }
+
+  toggleSort = (filterName) => {
+    let nextFilterObj = {
+      year: null,
+      mileage: null,
+      date: null
+    }
+
+    let nextFilterMode;
+
+    this.setState((prevState, props) => {
+      
+      switch (prevState.filters[filterName]) {
+        case 'ascending':
+          nextFilterMode = 'descending';
+          break;
+        case 'descending':
+          nextFilterMode = null;
+          break;
+        default:
+          nextFilterMode = 'ascending';
+      }
+
+      nextFilterObj[filterName] = nextFilterMode;
+
+      return {filters: nextFilterObj};
+
+    });
+
   }
 
   componentDidMount = () => {
@@ -39,6 +69,8 @@ class CarFinder extends Component {
           cars={this.state.cars}
           selectCar={this.selectCar}
           selectedCarKey={this.state.selectedCarKey}
+          filters={this.state.filters}
+          toggleSort={this.toggleSort}
         />
         <CarModal />
       </main>
