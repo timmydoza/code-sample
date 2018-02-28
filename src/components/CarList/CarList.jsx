@@ -1,7 +1,7 @@
 import React from 'react';
 import CarRow from './CarRow/CarRow';
 import styles from './CarList.css';
-import Header from './Header/Header'
+import SortControl from './SortControl/SortControl'
 
 const CarList = (props) => {
 
@@ -18,18 +18,28 @@ const CarList = (props) => {
   ));
 
   return (
-    <table className={styles.CarList}>
 
-      <Header 
-        sortOptions={props.sortOptions}
-        toggleSort={props.toggleSort}
-      />
+    <div>
 
-      <tbody>
-        {carRows}
-      </tbody>
+      <SortControl setSort={props.setSort} />
 
-    </table>
+      <table className={styles.CarList}>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Mileage</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {carRows}
+        </tbody>
+
+      </table>
+
+    </div>
   );
 }
 

@@ -8,11 +8,7 @@ class CarFinder extends Component {
 
   state = {
     cars: [],
-    sortOptions: {
-      year: null,
-      mileage: null,
-      date: null
-    },
+    sortOption: 'year',
     searchText: '',
     selectedCarKey: null,
   }
@@ -23,58 +19,45 @@ class CarFinder extends Component {
     });
   }
 
-  getSortFn(sortName, sortMode) {
+  getSortFn(sortName, ascending) {
+    return (a, b) => {
+      const aVal = a[sortName];
+      const bVal = b[sortName];
 
-    if (!sortMode) {
-      return Function.prototype; //for a no-op
-    } else {
-      return (a, b) => {
-        const aVal = a[sortName];
-        const bVal = b[sortName];
-        const ascending = sortMode === 'ascending';
-
-        if (aVal < bVal) {
-          return ascending ? 1 : -1;
-        }
-
-        if (aVal > bVal) {
-          return ascending ? -1 : 1;
-        }
-
-        return 0; //If they are the same
-
+      if (aVal < bVal) {
+        return ascending ? 1 : -1;
       }
-    }
 
+      if (aVal > bVal) {
+        return ascending ? -1 : 1;
+      }
+
+      return 0; //If they are the same
+
+    }
   }
 
-  toggleSort = (sortName) => {
-    let nextSortObj = {
-      year: null,
-      mileage: null,
-      date: null
-    }
-
-    let nextSortMode;
+  setSort = (sortName) => {
 
     this.setState((prevState, props) => {
-      
-      switch (prevState.sortOptions[sortName]) {
-        case 'ascending':
-          nextSortMode = 'descending';
+
+      let sortFn;
+
+      switch (sortName) {
+        case 'year':
+          sortFn = this.getSortFn('year', true);
           break;
-        case 'descending':
-          nextSortMode = null;
+        case 'mileage':
+          sortFn = this.getSortFn('mileage', true);
           break;
-        default:
-          nextSortMode = 'ascending';
+        case 'date':
+          sortFn = this.getSortFn('createdAt', true);
+          break;
       }
-
-      nextSortObj[sortName] = nextSortMode;
-
+      
       return {
-        sortOptions: nextSortObj,
-        cars: prevState.cars.slice().sort(this.getSortFn(sortName, nextSortMode))
+        sortOption: sortName,
+        cars: prevState.cars.slice().sort(sortFn)
       };
 
 
@@ -85,7 +68,7 @@ class CarFinder extends Component {
   componentDidMount = () => {
     API().then(cars => {
       this.setState({
-        cars
+        cars: cars.slice().sort(this.getSortFn('year', true))
       })
     });
   }
@@ -98,8 +81,7 @@ class CarFinder extends Component {
           cars={this.state.cars}
           selectCar={this.selectCar}
           selectedCarKey={this.state.selectedCarKey}
-          sortOptions={this.state.sortOptions}
-          toggleSort={this.toggleSort}
+          setSort={this.setSort}
         />
         <CarModal />
       </main>

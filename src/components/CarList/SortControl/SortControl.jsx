@@ -14,7 +14,17 @@ const SortControl = (props) => {
   )
 
   return (
-    <th className={classes} onClick={props.clickHandler}>{props.name}</th>
+    <div>
+      <label>
+        Sort By:
+        <select onChange={(e) => props.setSort(e.target.value)}>
+          <option value="year">Year</option>
+          <option value="mileage">Mileage</option>
+          <option value="date">Date</option>
+        </select>
+      </label>
+
+    </div>
   );
 }
 
