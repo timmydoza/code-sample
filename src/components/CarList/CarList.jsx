@@ -9,6 +9,7 @@ const CarList = (props) => {
       year={car.year}
       make={car.make}
       model={car.model}
+      selected={car.key === props.selectedCarKey}
       clickHandler={ () => props.selectCar(car.key) }
     />
   ));
@@ -16,7 +17,9 @@ const CarList = (props) => {
   return (
     <table>
 
-      {carRows}
+      <tbody>
+        {carRows}
+      </tbody>
 
     </table>
   );

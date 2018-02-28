@@ -49,7 +49,8 @@ class CarFinder extends Component {
       <main>
         <CarList 
           cars={this.state.cars}
-          selectCar
+          selectCar={this.selectCar}
+          selectedCarKey={this.state.selectedCarKey}
         />
         <CarModal />
       </main>
