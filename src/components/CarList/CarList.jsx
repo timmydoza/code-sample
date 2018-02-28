@@ -1,5 +1,6 @@
 import React from 'react';
 import CarRow from './CarRow/CarRow';
+import styles from './CarList.css';
 
 const CarList = (props) => {
 
@@ -15,7 +16,7 @@ const CarList = (props) => {
   ));
 
   return (
-    <table>
+    <table className={styles.CarList}>
 
       <tbody>
         {carRows}

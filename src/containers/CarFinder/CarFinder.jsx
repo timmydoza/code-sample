@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CarList from '../../components/CarList/CarList';
 import CarModal from '../../components/CarModal/CarModal';
+import styles from './CarFinder.css';
 
 class CarFinder extends Component {
 
@@ -45,8 +46,9 @@ class CarFinder extends Component {
 
 
   render() {
+    
     return (
-      <main>
+      <main className={styles.grid}>
         <CarList 
           cars={this.state.cars}
           selectCar={this.selectCar}
