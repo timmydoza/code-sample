@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import CarFinder from './containers/CarFinder/CarFinder';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-
-      </div>
+      <CarFinder />
     );
   }
 }
