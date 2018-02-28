@@ -2,7 +2,7 @@ import React from 'react';
 
 const CarModal = () => {
   return (
-    <p>tets</p>
+    <p></p>
   )
 }
 
