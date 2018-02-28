@@ -11,6 +11,7 @@ const CarList = (props) => {
       year={car.year}
       make={car.make}
       model={car.model}
+      mileage={car.mileage}
       selected={car.key === props.selectedCarKey}
       clickHandler={ () => props.selectCar(car.key) }
     />
@@ -20,7 +21,7 @@ const CarList = (props) => {
     <table className={styles.CarList}>
 
       <Header 
-        filters={props.filters}
+        sortOptions={props.sortOptions}
         toggleSort={props.toggleSort}
       />
 

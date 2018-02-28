@@ -11,6 +11,7 @@ const CarRow = (props) => {
       <td>{props.year}</td>
       <td>{props.make}</td>
       <td>{props.model}</td>
+      <td>{props.mileage}</td>
     </tr>
   );
 }

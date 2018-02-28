@@ -8,7 +8,7 @@ class CarFinder extends Component {
 
   state = {
     cars: [],
-    filters: {
+    sortOptions: {
       year: null,
       mileage: null,
       date: null
@@ -23,31 +23,60 @@ class CarFinder extends Component {
     });
   }
 
-  toggleSort = (filterName) => {
-    let nextFilterObj = {
+  getSortFn(sortName, sortMode) {
+
+    if (!sortMode) {
+      return Function.prototype; //for a no-op
+    } else {
+      return (a, b) => {
+        const aVal = a[sortName];
+        const bVal = b[sortName];
+        const ascending = sortMode === 'ascending';
+
+        if (aVal < bVal) {
+          return ascending ? 1 : -1;
+        }
+
+        if (aVal > bVal) {
+          return ascending ? -1 : 1;
+        }
+
+        return 0; //If they are the same
+
+      }
+    }
+
+  }
+
+  toggleSort = (sortName) => {
+    let nextSortObj = {
       year: null,
       mileage: null,
       date: null
     }
 
-    let nextFilterMode;
+    let nextSortMode;
 
     this.setState((prevState, props) => {
       
-      switch (prevState.filters[filterName]) {
+      switch (prevState.sortOptions[sortName]) {
         case 'ascending':
-          nextFilterMode = 'descending';
+          nextSortMode = 'descending';
           break;
         case 'descending':
-          nextFilterMode = null;
+          nextSortMode = null;
           break;
         default:
-          nextFilterMode = 'ascending';
+          nextSortMode = 'ascending';
       }
 
-      nextFilterObj[filterName] = nextFilterMode;
+      nextSortObj[sortName] = nextSortMode;
 
-      return {filters: nextFilterObj};
+      return {
+        sortOptions: nextSortObj,
+        cars: prevState.cars.slice().sort(this.getSortFn(sortName, nextSortMode))
+      };
+
 
     });
 
@@ -69,7 +98,7 @@ class CarFinder extends Component {
           cars={this.state.cars}
           selectCar={this.selectCar}
           selectedCarKey={this.state.selectedCarKey}
-          filters={this.state.filters}
+          sortOptions={this.state.sortOptions}
           toggleSort={this.toggleSort}
         />
         <CarModal />
