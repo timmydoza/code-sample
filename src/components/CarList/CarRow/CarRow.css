@@ -1,0 +1,7 @@
+.CarRow {
+  border: 1px solid grey;
+}
+
+.selected {
+  background: lightgrey;
+}
