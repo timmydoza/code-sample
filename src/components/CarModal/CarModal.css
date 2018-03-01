@@ -24,6 +24,8 @@
 
 .modal ul {
   float: left;
+  list-style: none;
+  padding: 0;
 }
 
 .modal img {
@@ -35,12 +37,10 @@
 .exit {
   position: absolute;
   top: 0.7em;
-  left: 1em;
+  left: 0.6em;
   font-size: 1.1em;
-  border: 1px solid;
-  border-radius: 100%;
-  width: 1.3em;
-  height: 1.3em;
+  width: 1.2em;
+  height: 1.5em;
   text-align: center;
   cursor: pointer;
 }
