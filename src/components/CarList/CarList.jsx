@@ -1,7 +1,8 @@
 import React from 'react';
 import CarRow from './CarRow/CarRow';
 import styles from './CarList.css';
-import SortControl from './SortControl/SortControl'
+import SortControl from './SortControl/SortControl';
+import SearchField from './SearchField/SearchField';
 
 const CarList = (props) => {
 
@@ -22,6 +23,8 @@ const CarList = (props) => {
     <div>
 
       <SortControl setSort={props.setSort} />
+
+      <SearchField setSearch={props.setSearch} />
 
       <table className={styles.CarList}>
         <thead>

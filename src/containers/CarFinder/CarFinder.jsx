@@ -65,6 +65,28 @@ class CarFinder extends Component {
 
   }
 
+  setSearch = (searchText) => {
+    console.log(searchText);
+    if (!searchText) {
+      return this.setState((prevState) => {
+        return {
+          cars: prevState.cars.slice()
+          }
+        })
+    }
+
+    const searchTerms = searchText.split(' ');
+
+    this.setState((prevState) => {
+      return {
+        cars: prevState.cars.slice().filter(car => {
+          const carTerms = [car.year.toString(), car.make, car.model];
+          return searchTerms.every(e => carTerms.includes(e));
+        })
+      }
+    });
+  }
+
   componentDidMount = () => {
     API().then(cars => {
       this.setState({
@@ -82,6 +104,7 @@ class CarFinder extends Component {
           selectCar={this.selectCar}
           selectedCarKey={this.state.selectedCarKey}
           setSort={this.setSort}
+          setSearch={this.setSearch}
         />
         <CarModal />
       </main>
