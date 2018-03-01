@@ -1,0 +1,45 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+.displayModal {
+  display: block;
+}
+
+.modal {
+  position: absolute;
+  width: 600px;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  background: white;
+  padding: 2em;
+}
+
+.modal ul {
+  float: left;
+}
+
+.modal img {
+  width: 50%;
+  float: right;
+}
+
+.exit {
+  position: absolute;
+  top: 0.7em;
+  left: 1em;
+  font-size: 1.1em;
+  border: 1px solid;
+  border-radius: 100%;
+  width: 1.3em;
+  height: 1.3em;
+  text-align: center;
+  cursor: pointer;
+}

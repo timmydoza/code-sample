@@ -95,6 +95,10 @@ class CarFinder extends Component {
     return carList.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
   }
 
+  getSelectedCar = () => {
+    return this.state.filteredSortedCars.find((car) => car.key === this.state.selectedCarKey);
+  }
+
   render() {
 
     return (
@@ -109,7 +113,7 @@ class CarFinder extends Component {
           totalPages={this.state.totalPages}
           setPage={this.setPage}
         />
-        <CarModal />
+        <CarModal {...this.getSelectedCar()} selectCar={this.selectCar} selectedCarKey={this.state.selectedCarKey} />
       </main>
     );
   }
