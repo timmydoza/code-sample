@@ -6,13 +6,24 @@ import SearchField from './SearchField/SearchField';
 import PaginationButtons from './PaginationButtons/PaginationButtons';
 
 const CarList = (props) => {
+  let carRows;
 
-  const carRows = props.cars.map((car) => (
-    <CarRow
-      {...car}
-      clickHandler={ () => props.selectCar(car.key) }
-    />
-  ));
+  if (props.cars.length > 0) {
+
+    carRows = props.cars.map((car) => (
+      <CarRow
+        {...car}
+        clickHandler={ () => props.selectCar(car.key) }
+      />
+    ));
+
+  } else {
+    carRows = (
+      <tr>
+      <td className={styles.noBorder}>No results found.</td>
+      </tr>
+      );
+  }
 
   return (
 

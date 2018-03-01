@@ -15,6 +15,10 @@
   padding: 0.4em 0.2em;
 }
 
+td.noBorder {
+  border: none;
+}
+
 .filterContainer {
   padding: 1em 0;
   overflow: hidden; /*clearfix*/
