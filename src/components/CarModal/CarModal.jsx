@@ -14,9 +14,9 @@ const CarModal = (props) => {
   );
 
   return (
-    <div className={overlayClasses} onClick={() => {props.selectCar(null)} }>
-      <div className={styles.modal}>
-        <span className={styles.exit} onClick={() => {props.selectCar(null)}}>x</span>
+    <div className={overlayClasses} onClick={() => props.selectCar(null) }>
+      <div className={styles.modal} onClick={(e) => e.stopPropagation() }>
+        <span className={styles.exit} onClick={() => props.selectCar(null) }>x</span>
         <ul>
           <li>Year: {props.year}</li>
           <li>Make: {props.make}</li>

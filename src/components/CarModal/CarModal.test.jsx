@@ -37,10 +37,20 @@ describe('the CarModal component', () => {
     const selectCar = jest.fn();
     const carModal = renderer
       .create(<CarModal {...testCar} selectCar={selectCar} selectedCarKey="1" />).toJSON();
-debugger;
     carModal.props.onClick();
     carModal.children[0].children[0].props.onClick(); //click both buttons
     expect(selectCar.mock.calls).toEqual([[null],[null]]);
+  });
+
+  it('clicks on the modal itself should not propagate', () => {
+    const stopPropagation = jest.fn();
+    const carModal = renderer
+      .create(<CarModal {...testCar} selectCar={jest.fn()} selectedCarKey="1" />).toJSON();
+    carModal.props.onClick();
+    carModal.children[0].props.onClick({
+      stopPropagation
+    });
+    expect(stopPropagation.mock.calls.length).toBe(1);
   });
 
 });

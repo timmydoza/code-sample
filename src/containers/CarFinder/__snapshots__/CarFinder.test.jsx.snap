@@ -419,6 +419,7 @@ exports[`the CarFinder component renders correctly 1`] = `
   >
     <div
       className="modal"
+      onClick={[Function]}
     >
       <span
         className="exit"
