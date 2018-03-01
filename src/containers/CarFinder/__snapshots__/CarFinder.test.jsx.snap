@@ -413,6 +413,37 @@ exports[`the CarFinder component renders correctly 1`] = `
       </button>
     </div>
   </div>
-  <p />
+  <div
+    className="modalOverlay"
+    onClick={[Function]}
+  >
+    <div
+      className="modal"
+    >
+      <span
+        className="exit"
+        onClick={[Function]}
+      >
+        x
+      </span>
+      <ul>
+        <li>
+          Year: 
+        </li>
+        <li>
+          Make: 
+        </li>
+        <li>
+          Model: 
+        </li>
+        <li>
+          Mileage: 
+        </li>
+      </ul>
+      <img
+        src={undefined}
+      />
+    </div>
+  </div>
 </main>
 `;

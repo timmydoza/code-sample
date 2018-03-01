@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the CarModal component renders correctly 1`] = `
+<div
+  className="modalOverlay displayModal"
+  onClick={[Function]}
+>
+  <div
+    className="modal"
+  >
+    <span
+      className="exit"
+      onClick={[Function]}
+    >
+      x
+    </span>
+    <ul>
+      <li>
+        Year: 
+        1999
+      </li>
+      <li>
+        Make: 
+        TestMake
+      </li>
+      <li>
+        Model: 
+        TestModel
+      </li>
+      <li>
+        Mileage: 
+        1234
+      </li>
+    </ul>
+    <img
+      src="image.jpg"
+    />
+  </div>
+</div>
+`;
