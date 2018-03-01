@@ -10,6 +10,7 @@ exports[`the PaginationButtons component renders correctly 1`] = `
   <span>
     4
      of 
+    11
   </span>
   <button
     onClick={[Function]}

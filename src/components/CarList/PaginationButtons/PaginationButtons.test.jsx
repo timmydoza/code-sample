@@ -8,9 +8,8 @@ describe('the PaginationButtons component', () => {
   beforeEach(() => {
     setPage = jest.fn();
     paginationButtons = renderer
-      .create(<PaginationButtons currentPage="4" totalpages="11" setPage={setPage}/>)
+      .create(<PaginationButtons currentPage="4" totalPages="11" setPage={setPage}/>)
       .toJSON()
-    debugger;
   });
 
   it('renders correctly', () => {
