@@ -8,7 +8,9 @@ exports[`the CarFinder component renders correctly 1`] = `
     <div
       className="filterContainer"
     >
-      <div>
+      <div
+        className="sortControl"
+      >
         <label>
           Sort By:
           <select
@@ -17,17 +19,17 @@ exports[`the CarFinder component renders correctly 1`] = `
             <option
               value="year"
             >
-              Year
+              Year - Oldest to Newest
             </option>
             <option
               value="mileage"
             >
-              Mileage
+              Mileage - Highest to Lowest
             </option>
             <option
               value="created_at"
             >
-              Date
+              Date Listed - Newest to Oldest
             </option>
           </select>
         </label>
@@ -317,91 +319,6 @@ exports[`the CarFinder component renders correctly 1`] = `
             9587
           </td>
         </tr>
-        <tr
-          className="CarRow"
-          onClick={[Function]}
-        >
-          <td>
-            2014
-          </td>
-          <td>
-            Chevrolet
-          </td>
-          <td>
-            Silverado 2500HD
-          </td>
-          <td>
-            10458
-          </td>
-        </tr>
-        <tr
-          className="CarRow"
-          onClick={[Function]}
-        >
-          <td>
-            2014
-          </td>
-          <td>
-            Land Rover
-          </td>
-          <td>
-            Range Rover
-          </td>
-          <td>
-            7458
-          </td>
-        </tr>
-        <tr
-          className="CarRow"
-          onClick={[Function]}
-        >
-          <td>
-            2015
-          </td>
-          <td>
-            Chrysler
-          </td>
-          <td>
-            200
-          </td>
-          <td>
-            8475
-          </td>
-        </tr>
-        <tr
-          className="CarRow"
-          onClick={[Function]}
-        >
-          <td>
-            2015
-          </td>
-          <td>
-            BMW
-          </td>
-          <td>
-            X4
-          </td>
-          <td>
-            9457
-          </td>
-        </tr>
-        <tr
-          className="CarRow"
-          onClick={[Function]}
-        >
-          <td>
-            2015
-          </td>
-          <td>
-            Toyota
-          </td>
-          <td>
-            Tundra
-          </td>
-          <td>
-            11458
-          </td>
-        </tr>
       </tbody>
     </table>
     <div
@@ -436,7 +353,7 @@ exports[`the CarFinder component renders correctly 1`] = `
         className="exit"
         onClick={[Function]}
       >
-        x
+        X
       </span>
       <ul>
         <li>
