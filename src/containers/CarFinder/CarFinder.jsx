@@ -5,18 +5,20 @@ import styles from './CarFinder.css';
 import API from '../../API/API';
 import { getSortFn, getFilterFn } from '../../utils/utils';
 
-const ITEMS_PER_PAGE = 50;
+const ITEMS_PER_PAGE = 20;
 
 class CarFinder extends Component {
 
   state = {
-    cars: [],
+    filteredSortedCars: [],
     sortOption: 'year',
     searchText: '',
     selectedCarKey: null,
     currentPage: 1,
     totalPages: null
-  }
+  };
+
+  carMasterList = [];
 
   selectCar = (selectedCarKey) => {
     this.setState({
@@ -25,24 +27,36 @@ class CarFinder extends Component {
   }
 
   setSort = (sortOption) => {
-    this.setState({
-      sortOption,
-      currentPage: 1
+    this.setState(prevState => {
+      return {
+        sortOption,
+        currentPage: 1,
+        filteredSortedCars: this.sortAndFilter(this.carMasterList, sortOption, prevState.searchText)
+      }
     });
   }
 
   setSearch = (searchText) => {
-    this.setState({
-      searchText,
-      currentPage: 1
+    this.setState(prevState => {
+      const filteredSortedCars = this.sortAndFilter(this.carMasterList, prevState.sortOption, searchText);
+      return {
+        searchText,
+        currentPage: 1,
+        filteredSortedCars,
+        totalPages: this.getTotalPages(filteredSortedCars)
+      }
     });
   }
 
   componentDidMount = () => {
     API().then(cars => {
-      this.setState({
-        cars,
-        totalPages: Math.ceil(cars.length / ITEMS_PER_PAGE)
+      this.carMasterList = cars;
+      this.setState(prevState => {
+        const filteredSortedCars = this.sortAndFilter(cars, prevState.sortOption, prevState.searchText);
+        return {
+          filteredSortedCars,
+          totalPages: this.getTotalPages(filteredSortedCars)
+        }
       });
     });
   }
@@ -66,11 +80,19 @@ class CarFinder extends Component {
     });
   }
 
-  sortFilterAndPaginate(carArray) {
+  sortAndFilter(carArray, sortOption, searchText) {
     //Filter returns new array.  Being careful to not mutate this.state.
-    const cars = carArray.filter(getFilterFn(this.state.searchText));
-    cars.sort(getSortFn(this.state.sortOption));
-    return cars.splice((this.state.currentPage - 1) * ITEMS_PER_PAGE, ITEMS_PER_PAGE);
+    const cars = carArray.filter(getFilterFn(searchText));
+    return cars.sort(getSortFn(sortOption));
+  }
+
+  getTotalPages = carList => {
+    return Math.ceil(carList.length / ITEMS_PER_PAGE);
+  }
+
+  paginate = carList => {
+    const page = this.state.currentPage;
+    return carList.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
   }
 
   render() {
@@ -78,7 +100,7 @@ class CarFinder extends Component {
     return (
       <main className={styles.grid}>
         <CarList 
-          cars={this.sortFilterAndPaginate(this.state.cars)}
+          cars={this.paginate(this.state.filteredSortedCars)}
           selectCar={this.selectCar}
           selectedCarKey={this.state.selectedCarKey}
           setSort={this.setSort}

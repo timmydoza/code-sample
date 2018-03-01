@@ -39,7 +39,11 @@ const CarList = (props) => {
 
       </table>
 
-      <PaginationButtons {...props}/>
+      <PaginationButtons
+        totalPages={props.totalPages}
+        currentPage={props.currentPage}
+        setPage={props.setPage}
+      />
 
     </div>
   );
