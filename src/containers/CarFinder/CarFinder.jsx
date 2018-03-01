@@ -3,6 +3,7 @@ import CarList from '../../components/CarList/CarList';
 import CarModal from '../../components/CarModal/CarModal';
 import styles from './CarFinder.css';
 import API from '../../API/API';
+import debounce from 'lodash.debounce';
 import { getSortFn, getFilterFn } from '../../utils/utils';
 
 const ITEMS_PER_PAGE = 20;
@@ -36,7 +37,7 @@ class CarFinder extends Component {
     });
   }
 
-  setSearch = (searchText) => {
+  setSearch = debounce(searchText => {
     this.setState(prevState => {
       const filteredSortedCars = this.sortAndFilter(this.carMasterList, prevState.sortOption, searchText);
       return {
@@ -46,7 +47,7 @@ class CarFinder extends Component {
         totalPages: this.getTotalPages(filteredSortedCars)
       }
     });
-  }
+  }, 50)
 
   componentDidMount = () => {
     API().then(cars => {

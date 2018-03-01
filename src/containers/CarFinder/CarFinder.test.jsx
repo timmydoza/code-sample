@@ -16,9 +16,11 @@ describe('the CarFinder component', () => {
   });
 
   it('should reset the page if a filter occurs', () => {
+    jest.useFakeTimers();
     const instance = carFinder.getInstance();
     instance.setPage(1);
     instance.setSearch('testing');
+    jest.runAllTimers(); //to deal with debounce
     expect(instance.state.currentPage).toBe(1);
   });
 
