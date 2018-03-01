@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the PaginationButtons component renders correctly 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    &lt;
+  </button>
+  <span>
+    4
+     of 
+  </span>
+  <button
+    onClick={[Function]}
+  >
+    &gt;
+  </button>
+</div>
+`;
