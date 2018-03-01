@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the PaginationButtons component renders correctly 1`] = `
-<div>
+<div
+  className="paginationButtons"
+>
   <button
     onClick={[Function]}
   >

@@ -5,34 +5,43 @@ exports[`the CarFinder component renders correctly 1`] = `
   className="grid"
 >
   <div>
-    <div>
-      <label>
-        Sort By:
-        <select
+    <div
+      className="filterContainer"
+    >
+      <div>
+        <label>
+          Sort By:
+          <select
+            onChange={[Function]}
+          >
+            <option
+              value="year"
+            >
+              Year
+            </option>
+            <option
+              value="mileage"
+            >
+              Mileage
+            </option>
+            <option
+              value="created_at"
+            >
+              Date
+            </option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <span>
+          Search: 
+        </span>
+        <input
           onChange={[Function]}
-        >
-          <option
-            value="year"
-          >
-            Year
-          </option>
-          <option
-            value="mileage"
-          >
-            Mileage
-          </option>
-          <option
-            value="created_at"
-          >
-            Date
-          </option>
-        </select>
-      </label>
+          type="text"
+        />
+      </div>
     </div>
-    <input
-      onChange={[Function]}
-      type="text"
-    />
     <table
       className="CarList"
     >
@@ -395,7 +404,9 @@ exports[`the CarFinder component renders correctly 1`] = `
         </tr>
       </tbody>
     </table>
-    <div>
+    <div
+      className="paginationButtons"
+    >
       <button
         onClick={[Function]}
       >
