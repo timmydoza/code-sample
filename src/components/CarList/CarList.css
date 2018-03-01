@@ -1,6 +1,18 @@
 .CarList {
   width: 100%;
   border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.CarList td {
+  border: 1px solid lightgrey;
+  padding: 0.4em 0.2em;
+}
+
+.CarList th {
+  width: 25%;
+  text-align: left;
+  padding: 0.4em 0.2em;
 }
 
 .filterContainer {
