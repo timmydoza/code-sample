@@ -2,3 +2,16 @@
   width: 100%;
   border-spacing: 0px;
 }
+
+.filterContainer {
+  padding: 1em 0;
+  overflow: hidden; /*clearfix*/
+}
+
+.filterContainer div:first-child {
+  float: left;
+}
+
+.filterContainer div:last-child {
+  float: right;
+}

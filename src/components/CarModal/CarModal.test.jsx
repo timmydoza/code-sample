@@ -46,7 +46,6 @@ describe('the CarModal component', () => {
     const stopPropagation = jest.fn();
     const carModal = renderer
       .create(<CarModal {...testCar} selectCar={jest.fn()} selectedCarKey="1" />).toJSON();
-    carModal.props.onClick();
     carModal.children[0].props.onClick({
       stopPropagation
     });

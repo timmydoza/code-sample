@@ -18,9 +18,10 @@ const CarList = (props) => {
 
     <div>
 
-      <SortControl setSort={props.setSort} />
-
-      <SearchField setSearch={props.setSearch} />
+      <div className={styles.filterContainer} >
+        <SortControl setSort={props.setSort} />
+        <SearchField setSearch={props.setSearch} />
+      </div>
 
       <table className={styles.CarList}>
         <thead>
