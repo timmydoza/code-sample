@@ -3,16 +3,13 @@ import CarRow from './CarRow/CarRow';
 import styles from './CarList.css';
 import SortControl from './SortControl/SortControl';
 import SearchField from './SearchField/SearchField';
+import PaginationButtons from './PaginationButtons/PaginationButtons';
 
 const CarList = (props) => {
 
   const carRows = props.cars.map((car) => (
     <CarRow
-      key={car.key}
-      year={car.year}
-      make={car.make}
-      model={car.model}
-      mileage={car.mileage}
+      {...car}
       selected={car.key === props.selectedCarKey}
       clickHandler={ () => props.selectCar(car.key) }
     />
@@ -41,6 +38,8 @@ const CarList = (props) => {
         </tbody>
 
       </table>
+
+      <PaginationButtons {...props}/>
 
     </div>
   );
