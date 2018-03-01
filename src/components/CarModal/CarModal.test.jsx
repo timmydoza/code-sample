@@ -13,12 +13,6 @@ const testCar = {
 const nullVal = null; //Just using {null} below was messing up syntax highlighting.
 
 describe('the CarModal component', () => {
-  // let carModal, setPage;
-
-  // beforeEach(() => {
-  //   carModal = renderer
-  //     .create(<CarModal {...testCar} selectCar={jest.fn()} selectedCarKey="1" />).toJSON()
-  // });
 
   it('renders correctly', () => {
     const carModal = renderer
