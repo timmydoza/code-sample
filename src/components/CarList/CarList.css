@@ -20,10 +20,18 @@
   overflow: hidden; /*clearfix*/
 }
 
+
 .filterContainer div:first-child {
   float: left;
 }
 
 .filterContainer div:last-child {
   float: right;
+}
+
+@media (max-width: 550px) {
+  .filterContainer div:nth-child(n) {
+    float: none;
+    padding-bottom: 1em;
+  }
 }

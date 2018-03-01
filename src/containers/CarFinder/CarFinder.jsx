@@ -6,7 +6,7 @@ import API from '../../API/API';
 import debounce from 'lodash.debounce';
 import { getSortFn, getFilterFn } from '../../utils/utils';
 
-const ITEMS_PER_PAGE = 20;
+const ITEMS_PER_PAGE = 15;
 
 class CarFinder extends Component {
 

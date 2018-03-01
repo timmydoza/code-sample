@@ -28,6 +28,7 @@
 
 .modal img {
   width: 50%;
+  display: block;
   float: right;
 }
 
@@ -42,4 +43,21 @@
   height: 1.3em;
   text-align: center;
   cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .modal {
+    width: calc(85% - 4em); /*to account for the 2em of padding on each side of the modal*/
+  }
+
+  .modal ul {
+    float: none;
+  }
+
+  .modal img {
+    width: 100%;
+    float: none;
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }
