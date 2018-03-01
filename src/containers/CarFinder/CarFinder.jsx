@@ -3,6 +3,7 @@ import CarList from '../../components/CarList/CarList';
 import CarModal from '../../components/CarModal/CarModal';
 import styles from './CarFinder.css';
 import API from '../../API/API';
+import { getSortFn, getFilterFn } from '../../utils/utils';
 
 class CarFinder extends Component {
 
@@ -19,80 +20,30 @@ class CarFinder extends Component {
     });
   }
 
-  getSortFn(sortName, ascending) {
-    return (a, b) => {
-      const aVal = a[sortName];
-      const bVal = b[sortName];
-
-      if (aVal < bVal) {
-        return ascending ? 1 : -1;
-      }
-
-      if (aVal > bVal) {
-        return ascending ? -1 : 1;
-      }
-
-      return 0; //If they are the same
-
-    }
-  }
-
-  setSort = (sortName) => {
-
-    this.setState((prevState, props) => {
-
-      let sortFn;
-
-      switch (sortName) {
-        case 'year':
-          sortFn = this.getSortFn('year', true);
-          break;
-        case 'mileage':
-          sortFn = this.getSortFn('mileage', true);
-          break;
-        case 'date':
-          sortFn = this.getSortFn('createdAt', true);
-          break;
-      }
-      
-      return {
-        sortOption: sortName,
-        cars: prevState.cars.slice().sort(sortFn)
-      };
-
-
+  setSort = (sortOption) => {
+    this.setState({
+      sortOption
     });
-
   }
 
   setSearch = (searchText) => {
-    console.log(searchText);
-    if (!searchText) {
-      return this.setState((prevState) => {
-        return {
-          cars: prevState.cars.slice()
-          }
-        })
-    }
-
-    const searchTerms = searchText.split(' ');
-
-    this.setState((prevState) => {
-      return {
-        cars: prevState.cars.slice().filter(car => {
-          const carTerms = [car.year.toString(), car.make, car.model];
-          return searchTerms.every(e => carTerms.includes(e));
-        })
-      }
+    this.setState({
+      searchText
     });
   }
 
   componentDidMount = () => {
     API().then(cars => {
       this.setState({
-        cars: cars.slice().sort(this.getSortFn('year', true))
-      })
+        cars
+      });
     });
+  }
+
+  sortAndFilter(carArray) {
+    //Filter returns new array.
+    const cars = carArray.filter(getFilterFn(this.state.searchText));
+    return cars.sort(getSortFn(this.state.sortOption));
   }
 
   render() {
@@ -100,7 +51,7 @@ class CarFinder extends Component {
     return (
       <main className={styles.grid}>
         <CarList 
-          cars={this.state.cars}
+          cars={this.sortAndFilter(this.state.cars)}
           selectCar={this.selectCar}
           selectedCarKey={this.state.selectedCarKey}
           setSort={this.setSort}
