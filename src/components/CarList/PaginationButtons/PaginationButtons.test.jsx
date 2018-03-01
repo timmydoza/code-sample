@@ -22,4 +22,9 @@ describe('the PaginationButtons component', () => {
     expect(setPage.mock.calls).toEqual([[-1],[1]]);
   })
 
+  it('should not render if there are less than 2 total pages', () => {
+    let noPaginationButtons = renderer.create(<PaginationButtons currentPage="1" totalPages="1" setPage={setPage}/>).toJSON();
+    expect(noPaginationButtons).toBe(null);
+  });
+
 });

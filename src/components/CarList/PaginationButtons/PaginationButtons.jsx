@@ -1,6 +1,10 @@
 import React from 'react';
 
 const PaginationButtons = (props) => {
+  if (props.totalPages < 2) {
+    return null;
+  }
+
   return (
     <div>
       <button onClick={() => props.setPage(-1)}>&lt;</button>
