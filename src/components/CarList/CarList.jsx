@@ -20,7 +20,7 @@ const CarList = (props) => {
   } else {
     carRows = (
       <tr>
-      <td className={styles.noBorder}>No results found.</td>
+        <td className={styles.noBorder}>No results found.</td>
       </tr>
       );
   }

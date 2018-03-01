@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the CarList component renders correctly 1`] = `
+<div>
+  <div
+    className="filterContainer"
+  >
+    <div
+      className="sortControl"
+    >
+      <label>
+        Sort By:
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value="year"
+          >
+            Year - Oldest to Newest
+          </option>
+          <option
+            value="mileage"
+          >
+            Mileage - Highest to Lowest
+          </option>
+          <option
+            value="created_at"
+          >
+            Date Listed - Newest to Oldest
+          </option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <span>
+        Search: 
+      </span>
+      <input
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+  </div>
+  <table
+    className="CarList"
+  >
+    <thead>
+      <tr>
+        <th>
+          Year
+        </th>
+        <th>
+          Make
+        </th>
+        <th>
+          Model
+        </th>
+        <th>
+          Mileage
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="CarRow"
+        onClick={[Function]}
+      >
+        <td>
+          1999
+        </td>
+        <td>
+          Testmake
+        </td>
+        <td>
+          Testmodel
+        </td>
+        <td>
+          20000
+        </td>
+      </tr>
+      <tr
+        className="CarRow"
+        onClick={[Function]}
+      >
+        <td>
+          1998
+        </td>
+        <td>
+          Testmake2
+        </td>
+        <td>
+          Testmodel2
+        </td>
+        <td>
+          20001
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    className="paginationButtons"
+  >
+    <button
+      onClick={[Function]}
+    >
+      &lt;
+    </button>
+    <span>
+      3
+       of 
+      6
+    </span>
+    <button
+      onClick={[Function]}
+    >
+      &gt;
+    </button>
+  </div>
+</div>
+`;
+
+exports[`the CarList component should show a message if there are no results to show 1`] = `
+<div>
+  <div
+    className="filterContainer"
+  >
+    <div
+      className="sortControl"
+    >
+      <label>
+        Sort By:
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value="year"
+          >
+            Year - Oldest to Newest
+          </option>
+          <option
+            value="mileage"
+          >
+            Mileage - Highest to Lowest
+          </option>
+          <option
+            value="created_at"
+          >
+            Date Listed - Newest to Oldest
+          </option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <span>
+        Search: 
+      </span>
+      <input
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+  </div>
+  <table
+    className="CarList"
+  >
+    <thead>
+      <tr>
+        <th>
+          Year
+        </th>
+        <th>
+          Make
+        </th>
+        <th>
+          Model
+        </th>
+        <th>
+          Mileage
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          className="noBorder"
+        >
+          No results found.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    className="paginationButtons"
+  >
+    <button
+      onClick={[Function]}
+    >
+      &lt;
+    </button>
+    <span>
+      3
+       of 
+      6
+    </span>
+    <button
+      onClick={[Function]}
+    >
+      &gt;
+    </button>
+  </div>
+</div>
+`;
