@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<tr
+  onClick={[Function]}
+>
+  <td>
+    1999
+  </td>
+  <td>
+    TestMake
+  </td>
+  <td>
+    TestModel
+  </td>
+  <td>
+    1234
+  </td>
+</tr>
+`;
