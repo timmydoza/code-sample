@@ -1,16 +1,16 @@
 const getSortFn = (sortName) => {
-  let ascending;
+  let descending = sortName === 'year';
 
   return (a, b) => {
     const aVal = a[sortName];
     const bVal = b[sortName];
 
     if (aVal < bVal) {
-      return ascending ? 1 : -1;
+      return descending ? -1 : 1;
     }
 
     if (aVal > bVal) {
-      return ascending ? -1 : 1;
+      return descending ? 1 : -1;
     }
 
     return 0; //If they are the same

@@ -9,7 +9,7 @@ const SortControl = (props) => {
         <select onChange={(e) => props.setSort(e.target.value)}>
           <option value="year">Year</option>
           <option value="mileage">Mileage</option>
-          <option value="date">Date</option>
+          <option value="created_at">Date</option>
         </select>
       </label>
 
