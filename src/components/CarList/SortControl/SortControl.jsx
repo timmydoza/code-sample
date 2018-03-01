@@ -1,15 +1,16 @@
 import React from 'react';
+import styles from './SortControl.css';
 
 const SortControl = (props) => {
 
   return (
-    <div>
+    <div className={styles.sortControl} >
       <label>
-        Sort By:
+        Sort By: 
         <select onChange={(e) => props.setSort(e.target.value)}>
-          <option value="year">Year</option>
-          <option value="mileage">Mileage</option>
-          <option value="created_at">Date</option>
+          <option value="year">Year - Oldest to Newest</option>
+          <option value="mileage">Mileage - Highest to Lowest</option>
+          <option value="created_at">Date Listed - Newest to Oldest</option>
         </select>
       </label>
 
