@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * A component that attaches onMouseEnter and onMouseLeave listeners to the child component.
+ * If the mouse hovers over this component for more than 300ms, then it will casue the browser
+ * to download and cache the inage provided in props.imageUrl.
+ * 
+ * @props  {object}
+ * @return {component}
+ */
 const Preloader = (props) => {
   let timeoutId;
 

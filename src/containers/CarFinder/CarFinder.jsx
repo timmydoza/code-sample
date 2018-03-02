@@ -27,6 +27,10 @@ class CarFinder extends Component {
     });
   }
 
+  /**
+   * Sets the sort option in the state.  Also updates the list of cars and resets the current page.
+   * @sortOption  {string} - should be 'year', 'created_at', or 'mileage'
+   */
   setSort = (sortOption) => {
     this.setState(prevState => {
       return {
@@ -37,6 +41,10 @@ class CarFinder extends Component {
     });
   }
 
+  /**
+   * Sets the search text in the state.  Also updates the list of cars and resets the current page.
+   * @searchText  {string} - a space delimited string of search terms
+   */
   setSearch = debounce(searchText => {
     this.setState(prevState => {
       const filteredSortedCars = this.sortAndFilter(this.carMasterList, prevState.sortOption, searchText);
@@ -49,19 +57,11 @@ class CarFinder extends Component {
     });
   }, 50)
 
-  componentDidMount = () => {
-    API().then(cars => {
-      this.carMasterList = cars;
-      this.setState(prevState => {
-        const filteredSortedCars = this.sortAndFilter(cars, prevState.sortOption, prevState.searchText);
-        return {
-          filteredSortedCars,
-          totalPages: this.getTotalPages(filteredSortedCars)
-        }
-      });
-    });
-  }
 
+  /**
+   * Sets the current page in the state.  Also checks to make sure the current page won't go out of range.
+   * @pageChange  {number} - A number that will be added to the current page.  -1 to go back one page.
+   */
   setPage = (pageChange) => {
     this.setState(prevState => {
       let newPage = prevState.currentPage + pageChange;
@@ -80,23 +80,55 @@ class CarFinder extends Component {
     });
   }
 
+  /**
+   * Sorts and filters carArray by the provided sortOption and searchText
+   * @carArray   {array} - and array of car objects
+   * @sortOption {string} - from state
+   * @searchText {string} - from state
+   *
+   * @returns    {array} Sorted array of car objects
+   */
   sortAndFilter(carArray, sortOption, searchText) {
     //Filter returns new array.  Being careful to not mutate this.state.
     const cars = carArray.filter(getFilterFn(searchText));
     return cars.sort(getSortFn(sortOption));
   }
 
+  /**
+   * @carList  {array} - Array of car objects
+   * @return   {number} - number of total pages the car list will take up
+   */
   getTotalPages = carList => {
     return Math.ceil(carList.length / ITEMS_PER_PAGE);
   }
 
+  /**
+   * @carList  {array} - Array of car objects
+   * @return   {[type]} - Spliced array of car objects that represents the cars to be shown on the current page.
+   */
   paginate = carList => {
     const page = this.state.currentPage;
     return carList.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
   }
 
+  /**
+   * @return {object} - returns the currently selected car object
+   */
   getSelectedCar = () => {
     return this.state.filteredSortedCars.find(car => car.key === this.state.selectedCarKey);
+  }
+
+  componentDidMount = () => {
+    API().then(cars => {
+      this.carMasterList = cars;
+      this.setState(prevState => {
+        const filteredSortedCars = this.sortAndFilter(cars, prevState.sortOption, prevState.searchText);
+        return {
+          filteredSortedCars,
+          totalPages: this.getTotalPages(filteredSortedCars)
+        }
+      });
+    });
   }
 
   render() {

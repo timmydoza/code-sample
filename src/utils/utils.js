@@ -1,3 +1,8 @@
+/**
+ * Returns a compare function to be used with Array.sort()
+ * @sortName  {string} - if the sortName is 'year' then the order of the sort is reversed.
+ * @return    {[Function]}
+ */
 const getSortFn = (sortName) => {
   const descending = sortName === 'year';
 
@@ -17,6 +22,11 @@ const getSortFn = (sortName) => {
   };
 };
 
+/**
+ * Returns a predicate function to be used with Array.filter()
+ * @searchText  {string} - the space delimited string of search terms.
+ * @return      {[Function]}
+ */
 const getFilterFn = (searchText) => {
   const searchTerms = searchText.split(' ');
 
