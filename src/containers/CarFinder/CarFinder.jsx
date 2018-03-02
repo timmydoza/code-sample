@@ -19,6 +19,7 @@ class CarFinder extends Component {
     totalPages: null
   };
 
+  // The list of all cars is stored here.  Used as a starting point for filtering.
   carMasterList = [];
 
   selectCar = (selectedCarKey) => {
