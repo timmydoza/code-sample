@@ -50,7 +50,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
+    "test": "node scripts/test.js --env=jsdom --verbose",
     "test-debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand --env jest-environment-node-debug",
     "postinstall": "node scripts/build.js"
   },
