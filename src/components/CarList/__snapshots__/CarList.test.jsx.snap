@@ -64,6 +64,8 @@ exports[`the CarList component renders correctly 1`] = `
       <tr
         className="CarRow"
         onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <td>
           1999
@@ -81,6 +83,8 @@ exports[`the CarList component renders correctly 1`] = `
       <tr
         className="CarRow"
         onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
       >
         <td>
           1998

@@ -67,6 +67,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             1999
@@ -84,6 +86,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2013
@@ -101,6 +105,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2013
@@ -118,6 +124,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2013
@@ -135,6 +143,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2013
@@ -152,6 +162,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2013
@@ -169,6 +181,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2013
@@ -186,6 +200,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2014
@@ -203,6 +219,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2014
@@ -220,6 +238,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2014
@@ -237,6 +257,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2014
@@ -254,6 +276,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2014
@@ -271,6 +295,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2014
@@ -288,6 +314,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2014
@@ -305,6 +333,8 @@ exports[`the CarFinder component renders correctly 1`] = `
         <tr
           className="CarRow"
           onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <td>
             2014

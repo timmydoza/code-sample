@@ -4,6 +4,8 @@ exports[`renders correctly 1`] = `
 <tr
   className="CarRow"
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <td>
     1999
