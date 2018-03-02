@@ -7,6 +7,7 @@ const testCar = {
   model: 'TestModel',
   year: 1999,
   mileage: 1234,
+  image_url: 'test.jpg',
 };
 
 it('renders correctly', () => {

@@ -15,6 +15,7 @@ const testProps = {
       model: 'Testmodel',
       year: 1999,
       mileage: 20000,
+      image_url: 'test.jpg',
     },
     {
       key: 2,
@@ -22,6 +23,7 @@ const testProps = {
       model: 'Testmodel2',
       year: 1998,
       mileage: 20001,
+      image_url: 'test2.jpg',
     },
   ],
 };

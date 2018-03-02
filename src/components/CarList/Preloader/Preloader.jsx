@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Preloader = (props) => {
   let timeoutId;
@@ -20,6 +21,10 @@ const Preloader = (props) => {
     onMouseEnter: enterHandler,
     onMouseLeave: leaveHandler,
   });
+};
+
+Preloader.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
 };
 
 export default Preloader;
