@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './PaginationButtons.css';
 
 const PaginationButtons = (props) => {
@@ -13,6 +14,12 @@ const PaginationButtons = (props) => {
       <button onClick={() => props.setPage(1)}>&gt;</button>
     </div>
   );
-}
+};
+
+PaginationButtons.propTypes = {
+  setPage: PropTypes.func.isRequired,
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
+};
 
 export default PaginationButtons;
