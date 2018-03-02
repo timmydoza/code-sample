@@ -9,7 +9,7 @@ const Preloader = (props) => {
   };
 
   const enterHandler = () => {
-    timeoutId = setTimeout(() => loadImage(props.image_url), 300);
+    timeoutId = setTimeout(() => loadImage(props.imageUrl), 300);
   };
 
   const leaveHandler = () => {

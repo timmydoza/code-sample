@@ -5,7 +5,7 @@ import Preloader from '../Preloader/Preloader';
 
 const CarRow = props =>
   (
-    <Preloader image_url={props.image_url}>
+    <Preloader imageUrl={props.image_url}>
       <tr className={styles.CarRow} onClick={props.clickHandler}>
         <td>{props.year}</td>
         <td>{props.make}</td>
