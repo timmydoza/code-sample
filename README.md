@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/timmydoza/codechallenge.svg?branch=master)](https://travis-ci.org/timmydoza/codechallenge)
+
 ## CarFinder
 
 A react app I made for a code challenge.
