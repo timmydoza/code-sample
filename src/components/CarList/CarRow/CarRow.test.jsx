@@ -6,12 +6,12 @@ const testCar = {
   make: 'TestMake',
   model: 'TestModel',
   year: 1999,
-  mileage: 1234
-}
+  mileage: 1234,
+};
 
 it('renders correctly', () => {
   const tree = renderer
-    .create(<CarRow {...testCar} clickHandler={Function.prototype}/>)
+    .create(<CarRow {...testCar} clickHandler={Function.prototype} />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

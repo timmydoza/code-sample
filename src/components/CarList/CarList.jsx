@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CarRow from './CarRow/CarRow';
 import styles from './CarList.css';
 import SortControl from './SortControl/SortControl';
@@ -9,20 +10,18 @@ const CarList = (props) => {
   let carRows;
 
   if (props.cars.length > 0) {
-
-    carRows = props.cars.map((car) => (
+    carRows = props.cars.map(car => (
       <CarRow
         {...car}
-        clickHandler={ () => props.selectCar(car.key) }
+        clickHandler={() => props.selectCar(car.key)}
       />
     ));
-
   } else {
     carRows = (
       <tr>
         <td className={styles.noBorder}>No results found.</td>
       </tr>
-      );
+    );
   }
 
   return (
@@ -58,6 +57,20 @@ const CarList = (props) => {
 
     </div>
   );
-}
+};
 
-export default CarList
+CarList.propTypes = {
+  totalPages: PropTypes.number,
+  currentPage: PropTypes.number,
+  setPage: PropTypes.func.isRequired,
+  setSort: PropTypes.func.isRequired,
+  setSearch: PropTypes.func.isRequired,
+  cars: PropTypes.array.isRequired,
+};
+
+CarList.defaultProps = {
+  totalPages: 1,
+  currentPage: 1,
+};
+
+export default CarList;
