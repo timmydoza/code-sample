@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import CarFinder from './CarFinder';
 
 jest.mock('../../API/API');
+jest.useFakeTimers();
 
 describe('the CarFinder component', () => {
   let carFinder, setPage;
@@ -16,7 +17,6 @@ describe('the CarFinder component', () => {
   });
 
   it('should reset the page if a filter occurs', () => {
-    jest.useFakeTimers();
     const instance = carFinder.getInstance();
     instance.setPage(1);
     instance.setSearch('testing');

@@ -14,15 +14,14 @@ describe('the CarModal component', () => {
 
   it('renders correctly', () => {
     const carModal = renderer
-      .create(<CarModal {...testCar} selectCar={jest.fn()} selectedCarKey={1} />)
-      .toJSON();
+      .create(<CarModal {...testCar} selectCar={jest.fn()} selectedCarKey={1} />).toJSON();
     expect(carModal).toMatchSnapshot();
   });
 
   it('should not have display class if selectedCarKey is null', () => {
     const carModal = renderer
       .create(<CarModal {...testCar} selectCar={jest.fn()} selectedCarKey={null} />).toJSON();
-    expect(carModal.props.className).toBe('modalOverlay'); //theres no display class
+    expect(carModal.props.className).toBe('modalOverlay'); //theres no 'display' class
   });
 
   it('should set the selectedCarKey to null when the user closes the modal', () => {

@@ -11,7 +11,7 @@ describe('the Preloader component', () => {
   beforeEach(() => {
     preloader = renderer.create(<Preloader imageUrl="test.jpg"><div test="test"></div></Preloader>).toJSON();
     mockFn = jest.fn();
-    global.Image = class Image {
+    global.Image = class Image { //Mock for the window.Image class
       set src(source) {
         mockFn(source);
       }
