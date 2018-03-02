@@ -34,6 +34,7 @@ exports[`the CarModal component renders correctly 1`] = `
       </li>
     </ul>
     <img
+      alt=""
       src="image.jpg"
     />
   </div>

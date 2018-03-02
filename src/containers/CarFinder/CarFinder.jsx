@@ -77,7 +77,6 @@ class CarFinder extends Component {
       return {
         currentPage: newPage
       }
-
     });
   }
 
@@ -97,7 +96,7 @@ class CarFinder extends Component {
   }
 
   getSelectedCar = () => {
-    return this.state.filteredSortedCars.find((car) => car.key === this.state.selectedCarKey);
+    return this.state.filteredSortedCars.find(car => car.key === this.state.selectedCarKey);
   }
 
   render() {
@@ -114,7 +113,10 @@ class CarFinder extends Component {
           totalPages={this.state.totalPages}
           setPage={this.setPage}
         />
-        <CarModal {...this.getSelectedCar()} selectCar={this.selectCar} selectedCarKey={this.state.selectedCarKey} />
+        <CarModal 
+          { ...this.getSelectedCar() } 
+          selectCar={this.selectCar} 
+          selectedCarKey={this.state.selectedCarKey} />
       </main>
     );
   }

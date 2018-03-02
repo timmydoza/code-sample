@@ -1,5 +1,5 @@
 const getSortFn = (sortName) => {
-  let descending = sortName === 'year';
+  const descending = sortName === 'year';
 
   return (a, b) => {
     const aVal = a[sortName];
@@ -13,27 +13,23 @@ const getSortFn = (sortName) => {
       return descending ? 1 : -1;
     }
 
-    return 0; //If they are the same
-
-  }
-
+    return 0; // If they are the same
+  };
 };
 
 const getFilterFn = (searchText) => {
   const searchTerms = searchText.split(' ');
 
-  return car => {
-    var carTerms = [car.year.toString(), car.make, car.model];
+  return (car) => {
+    const carTerms = [car.year.toString(), car.make, car.model];
 
-    return searchTerms.every(searchTerm => {
-      return carTerms.some(carTerm => {
+    return searchTerms.every((searchTerm) => {
+      return carTerms.some((carTerm) => {
         const searchRegex = new RegExp(searchTerm, 'i');
         return searchRegex.test(carTerm);
-      })
-    })
-  }
-
-
-}
+      });
+    });
+  };
+};
 
 export { getSortFn, getFilterFn };

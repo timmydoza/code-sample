@@ -370,6 +370,7 @@ exports[`the CarFinder component renders correctly 1`] = `
         </li>
       </ul>
       <img
+        alt=""
         src={undefined}
       />
     </div>
