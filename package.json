@@ -33,6 +33,7 @@
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
+    "prop-types": "^15.6.1",
     "raf": "3.4.0",
     "react": "^16.2.0",
     "react-dev-utils": "^5.0.0",
@@ -92,9 +93,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "airbnb"
   },
   "devDependencies": {
+    "eslint-config-airbnb": "^16.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-environment-node-debug": "^2.0.0",
     "react-test-renderer": "^16.2.0"

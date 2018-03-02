@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './CarRow.css';
 
-const CarRow = (props) => {
-  
+const CarRow = (props) => 
   return (
     <tr className={styles.CarRow} onClick={props.clickHandler}>
       <td>{props.year}</td>
@@ -11,6 +11,14 @@ const CarRow = (props) => {
       <td>{props.mileage}</td>
     </tr>
   );
-}
+
+
+CarRow.propTypes = {
+  clickHandler: PropTypes.function.isRequired,
+  year: PropTypes.number.isRequired,
+  make: PropTypes.number.isRequired,
+  model: PropTypes.number.isRequired,
+  mileage: PropTypes.number.isRequired,
+};
 
 export default CarRow;
