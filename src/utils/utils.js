@@ -3,7 +3,7 @@
  * @sortName  {string} - if the sortName is 'year' then the order of the sort is reversed.
  * @return    {[Function]}
  */
-const getSortFn = (sortName) => {
+export const getSortFn = (sortName) => {
   const descending = sortName === 'year';
 
   return (a, b) => {
@@ -27,7 +27,7 @@ const getSortFn = (sortName) => {
  * @searchText  {string} - the space delimited string of search terms.
  * @return      {[Function]}
  */
-const getFilterFn = (searchText) => {
+export const getFilterFn = (searchText) => {
   const searchTerms = searchText.split(' ');
 
   return (car) => {
@@ -42,4 +42,16 @@ const getFilterFn = (searchText) => {
   };
 };
 
-export { getSortFn, getFilterFn };
+/**
+ * Sorts and filters carArray by the provided sortOption and searchText
+ * @carArray   {array} - and array of car objects
+ * @sortOption {string} - from state
+ * @searchText {string} - from state
+ *
+ * @returns    {array} Sorted array of car objects
+ */
+export const sortAndFilter = (carArray, sortOption, searchText) => {
+  //Filter returns new array.  Being careful to not mutate carArray.
+  const cars = carArray.filter(getFilterFn(searchText));
+  return cars.sort(getSortFn(sortOption));
+}
