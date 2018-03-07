@@ -9,28 +9,28 @@ const CarModal = (props) => {
   const overlayClasses = cx(
     'modalOverlay',
     {
-      displayModal: props.selectedCarKey !== null
+      displayModal: Object.values(props.selectedCar).length !== 0
     },
   );
 
   return (
-    <div className={overlayClasses} onClick={() => props.selectCar(null)}>
+    <div className={overlayClasses} onClick={() => props.selectCar({})}>
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
-        <span className={styles.exit} onClick={() => props.selectCar(null)}>X</span>
+        <span className={styles.exit} onClick={() => props.selectCar({})}>X</span>
         <ul>
-          <li>Year: {props.year}</li>
-          <li>Make: {props.make}</li>
-          <li>Model: {props.model}</li>
-          <li>Mileage: {props.mileage}</li>
+          <li>Year: {props.selectedCar.year}</li>
+          <li>Make: {props.selectedCar.make}</li>
+          <li>Model: {props.selectedCar.model}</li>
+          <li>Mileage: {props.selectedCar.mileage}</li>
         </ul>
-        <img src={props.image_url} alt="" />
+        <img src={props.selectedCar.image_url} alt="" />
       </div>
     </div>
   );
 };
 
 CarModal.propTypes = {
-  selectedCarKey: PropTypes.number,
+  selectedCar: PropTypes.object,
   selectCar: PropTypes.func.isRequired,
   year: PropTypes.number,
   make: PropTypes.string,
@@ -40,7 +40,7 @@ CarModal.propTypes = {
 };
 
 CarModal.defaultProps = {
-  selectedCarKey: null,
+  selectedCar: null,
   year: undefined,
   make: undefined,
   model: undefined,

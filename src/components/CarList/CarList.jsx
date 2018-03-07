@@ -13,7 +13,7 @@ const CarList = (props) => {
     carRows = props.cars.map(car => (
       <CarRow
         {...car}
-        clickHandler={() => props.selectCar(car.key)}
+        clickHandler={() => props.selectCar(car)}
       />
     ));
   } else {

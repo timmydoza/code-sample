@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CarList from '../../components/CarList/CarList';
 import CarModal from '../../components/CarModal/CarModal';
 import styles from './CarFinder.css';
@@ -8,13 +9,13 @@ import { getSortFn, getFilterFn } from '../../utils/utils';
 
 const ITEMS_PER_PAGE = 15;
 
-class CarFinder extends Component {
+export class CarFinder extends Component {
 
   state = {
     filteredSortedCars: [],
     sortOption: 'year',
     searchText: '',
-    selectedCarKey: null,
+    selectedCar: {},
     currentPage: 1,
     totalPages: null
   };
@@ -112,12 +113,12 @@ class CarFinder extends Component {
     return carList.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
   }
 
-  /**
-   * @return {object} - returns the currently selected car object
-   */
-  getSelectedCar = () => {
-    return this.state.filteredSortedCars.find(car => car.key === this.state.selectedCarKey);
-  }
+  // /**
+  //  * @return {object} - returns the currently selected car object
+  //  */
+  // getSelectedCar = () => {
+  //   return this.state.filteredSortedCars.find(car => car.key === this.props.selectedCarKey);
+  // }
 
   componentDidMount = () => {
     API().then(cars => {
@@ -138,8 +139,8 @@ class CarFinder extends Component {
       <main className={styles.grid}>
         <CarList 
           cars={this.paginate(this.state.filteredSortedCars)}
-          selectCar={this.selectCar}
-          selectedCarKey={this.state.selectedCarKey}
+          selectCar={this.props.selectCar}
+          selectedCarKey={this.props.selectedCarKey}
           setSort={this.setSort}
           setSearch={this.setSearch}
           currentPage={this.state.currentPage}
@@ -147,12 +148,23 @@ class CarFinder extends Component {
           setPage={this.setPage}
         />
         <CarModal 
-          { ...this.getSelectedCar() } 
-          selectCar={this.selectCar} 
-          selectedCarKey={this.state.selectedCarKey} />
+          selectCar={this.props.selectCar} 
+          selectedCar={this.props.selectedCar} />
       </main>
     );
   }
 }
 
-export default CarFinder;
+const mapStateToProps = state => {
+  return {
+    selectedCar: state.selectedCar
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    selectCar: (key) => dispatch({type: 'SELECT_CAR', key})
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CarFinder);

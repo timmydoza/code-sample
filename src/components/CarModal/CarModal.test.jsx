@@ -10,33 +10,35 @@ const testCar = {
   image_url: 'image.jpg',
 };
 
+const emptyObj = {};
+
 describe('the CarModal component', () => {
 
   it('renders correctly', () => {
     const carModal = renderer
-      .create(<CarModal {...testCar} selectCar={jest.fn()} selectedCarKey={1} />).toJSON();
+      .create(<CarModal selectCar={jest.fn()} selectedCar={testCar} />).toJSON();
     expect(carModal).toMatchSnapshot();
   });
 
-  it('should not have display class if selectedCarKey is null', () => {
+  it('should not have display class if selectedCar is empty', () => {
     const carModal = renderer
-      .create(<CarModal {...testCar} selectCar={jest.fn()} selectedCarKey={null} />).toJSON();
+      .create(<CarModal selectCar={jest.fn()} selectedCar={emptyObj} />).toJSON();
     expect(carModal.props.className).toBe('modalOverlay'); //theres no 'display' class
   });
 
-  it('should set the selectedCarKey to null when the user closes the modal', () => {
+  it('should set the selectedCarKey to an empty object when the user closes the modal', () => {
     const selectCar = jest.fn();
     const carModal = renderer
-      .create(<CarModal {...testCar} selectCar={selectCar} selectedCarKey={1} />).toJSON();
+      .create(<CarModal selectCar={selectCar} selectedCar={testCar} />).toJSON();
     carModal.props.onClick();
     carModal.children[0].children[0].props.onClick(); //click both buttons
-    expect(selectCar.mock.calls).toEqual([[null], [null]]);
+    expect(selectCar.mock.calls).toEqual([[{}], [{}]]);
   });
 
   it('clicks on the modal itself should not propagate', () => {
     const stopPropagation = jest.fn();
     const carModal = renderer
-      .create(<CarModal {...testCar} selectCar={jest.fn()} selectedCarKey={1} />).toJSON();
+      .create(<CarModal selectCar={jest.fn()} selectedCar={testCar} />).toJSON();
     carModal.children[0].props.onClick({
       stopPropagation,
     });
