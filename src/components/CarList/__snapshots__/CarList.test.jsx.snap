@@ -37,6 +37,7 @@ exports[`the CarList component renders correctly 1`] = `
       </span>
       <input
         onChange={[Function]}
+        placeholder="e.g. '2004 honda'"
         type="text"
         value=""
       />
@@ -161,6 +162,7 @@ exports[`the CarList component should show a message if there are no results to 
       </span>
       <input
         onChange={[Function]}
+        placeholder="e.g. '2004 honda'"
         type="text"
         value=""
       />

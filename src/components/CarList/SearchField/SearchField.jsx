@@ -18,7 +18,10 @@ class SearchField extends Component {
     return   (
       <div>
         <span>Search: </span>
-        <input type="text" value={this.state.value} onChange={this.onChange} />
+        <input type="text" 
+               placeholder="e.g. '2004 honda'"
+               value={this.state.value} 
+               onChange={this.onChange} />
       </div>
     );
   }
