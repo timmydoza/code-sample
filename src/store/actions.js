@@ -18,7 +18,7 @@ export const getCars = () => {
   }
 }
 
-export const setPage = (pageChange) => {
+export const setPage = pageChange => {
   return {
     type: actionTypes.SET_PAGE,
     pageChange
@@ -32,7 +32,7 @@ export const setSearch = searchText => {
   }
 }
 
-export const setSort = (sortOption) => {
+export const setSort = sortOption => {
   return {
     type: actionTypes.SET_SORT,
     sortOption
