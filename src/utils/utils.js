@@ -35,7 +35,7 @@ export const getFilterFn = (searchText) => {
 
     return searchTerms.every((searchTerm) => {
       return carTerms.some((carTerm) => {
-        const searchRegex = new RegExp(searchTerm, 'i');
+        const searchRegex = new RegExp('^' + searchTerm, 'i');
         return searchRegex.test(carTerm);
       });
     });

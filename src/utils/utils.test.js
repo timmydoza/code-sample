@@ -101,6 +101,16 @@ const testFilterData = [
     make: 'Subaru',
     model: 'Impreza',
     year: '2011'
+  },
+  {
+    make: 'Mini',
+    model: 'Cooper',
+    year: '2014'
+  },
+  {
+    make: 'Infiniti',
+    model: 'Q60',
+    year: '2015'
   }
 ];
 
@@ -155,6 +165,12 @@ describe('the getFilterFn', () => {
   it('should only filter results of a car has all search terms', () => {
     const verificationData = [];
     const filteredData = testFilterData.filter(getFilterFn('honda subaru'));
+    expect(filteredData).toEqual(verificationData);
+  });
+
+  it('should only match terms starting from the beginning of the string', () => {
+    const verificationData = [];
+    const filteredData = testFilterData.filter(getFilterFn('ini'));
     expect(filteredData).toEqual(verificationData);
   });
 });
