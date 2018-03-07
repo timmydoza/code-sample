@@ -1,8 +1,6 @@
 import * as actionTypes from './actionTypes';
 import { sortAndFilter } from './../utils/utils';
 
-const ITEMS_PER_PAGE = 15;
-
 export const initialState = {
   allCars: [],
   filteredSortedCars: [],
@@ -11,7 +9,7 @@ export const initialState = {
   selectedCar: {},
   currentPage: 1,
   totalPages: null,
-  ITEMS_PER_PAGE,
+  ITEMS_PER_PAGE: 15,
 };
 
 export default (state = initialState, action) => {
@@ -25,7 +23,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         allCars: action.cars,
-        totalPages: Math.ceil(action.cars.length / ITEMS_PER_PAGE),
+        totalPages: Math.ceil(action.cars.length / state.ITEMS_PER_PAGE),
         filteredSortedCars: sortAndFilter(action.cars, state.sortOption, state.searchText),
       };
     case actionTypes.SET_PAGE: {
@@ -50,7 +48,7 @@ export default (state = initialState, action) => {
         ...state,
         searchText: action.searchText,
         currentPage: 1,
-        totalPages: Math.ceil(filteredSortedCars.length / ITEMS_PER_PAGE),
+        totalPages: Math.ceil(filteredSortedCars.length / state.ITEMS_PER_PAGE),
         filteredSortedCars,
       };
     }
@@ -60,7 +58,7 @@ export default (state = initialState, action) => {
         ...state,
         sortOption: action.sortOption,
         currentPage: 1,
-        totalPages: Math.ceil(filteredSortedCars.length / ITEMS_PER_PAGE),
+        totalPages: Math.ceil(filteredSortedCars.length / state.ITEMS_PER_PAGE),
         filteredSortedCars,
       };
     }

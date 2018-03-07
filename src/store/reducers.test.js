@@ -1,4 +1,5 @@
 import reducer, { initialState } from './reducers';
+import * as actionTypes from './actionTypes';
 
 const testCars = [
   {
@@ -63,7 +64,7 @@ describe('the reducer', () => {
         },
       ];
 
-      expect(reducer(initialState, {type: 'SAVE_CARS', cars: testCars})).toEqual({
+      expect(reducer(initialState, {type: actionTypes.SAVE_CARS, cars: testCars})).toEqual({
         ...initialState,
         allCars: testCars,
         totalPages: 1,
@@ -74,14 +75,25 @@ describe('the reducer', () => {
 
   describe('the SET_PAGE action', () => {
     it('should not let the pagination go out of range', () => {
-      expect(reducer({...initialState, totalPages: 3}, {type: 'SET_PAGE', pageChange: -1})).toEqual({...initialState, totalPages: 3});
-      expect(reducer({...initialState, totalPages: 3}, {type: 'SET_PAGE', pageChange: 5})).toEqual({...initialState, currentPage: 3, totalPages: 3});
+      expect(reducer({...initialState, totalPages: 3}, {type: actionTypes.SET_PAGE, pageChange: -1})).toEqual({...initialState, totalPages: 3});
+      expect(reducer({...initialState, totalPages: 3}, {type: actionTypes.SET_PAGE, pageChange: 5})).toEqual({...initialState, currentPage: 3, totalPages: 3});
     });
 
     it('should set the page', () => {
-      expect(reducer({...initialState, totalPages: 3}, {type: 'SET_PAGE', pageChange: 1})).toEqual({...initialState, currentPage: 2, totalPages: 3});
+      expect(reducer({...initialState, totalPages: 3}, {type: actionTypes.SET_PAGE, pageChange: 1})).toEqual({...initialState, currentPage: 2, totalPages: 3});
     });
   });
 
+  describe('the SET_SEARCH action', () => {
+    it('should reset the page', () => {
+      expect(reducer({...initialState, currentPage:3}, {type: actionTypes.SET_SEARCH, searchText: ''})).toEqual({...initialState, totalPages: 0});
+    });
+  });
+
+  describe('the SET_SORT action', () => {
+    it('should reset the page', () => {
+      expect(reducer({...initialState, currentPage:3}, {type: actionTypes.SET_SORT, sortOption: 'year'})).toEqual({...initialState, totalPages: 0});
+    });
+  });
 
 });
