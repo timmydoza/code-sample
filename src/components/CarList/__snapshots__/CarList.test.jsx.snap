@@ -38,6 +38,7 @@ exports[`the CarList component renders correctly 1`] = `
       <input
         onChange={[Function]}
         type="text"
+        value=""
       />
     </div>
   </div>
@@ -161,6 +162,7 @@ exports[`the CarList component should show a message if there are no results to 
       <input
         onChange={[Function]}
         type="text"
+        value=""
       />
     </div>
   </div>
