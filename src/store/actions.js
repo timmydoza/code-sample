@@ -2,39 +2,37 @@ import * as actionTypes from './actionTypes';
 import API from '../API/API';
 
 
-export const selectCar = (car) => {
-  return {
+export const selectCar = car => (
+  {
     type: actionTypes.SELECT_CAR,
-    car
+    car,
   }
-}
+);
 
-export const getCars = () => {
-  return dispatch => {
-    API().then(cars => dispatch({
-      type: actionTypes.SAVE_CARS,
-      cars
-    }));
-  }
-}
+export const getCars = () => (
+  dispatch => API().then(cars => dispatch({
+    type: actionTypes.SAVE_CARS,
+    cars,
+  }))
+);
 
-export const setPage = pageChange => {
-  return {
+export const setPage = pageChange => (
+  {
     type: actionTypes.SET_PAGE,
-    pageChange
+    pageChange,
   }
-}
+);
 
-export const setSearch = searchText => {
-  return {
+export const setSearch = searchText => (
+  {
     type: actionTypes.SET_SEARCH,
-    searchText
+    searchText,
   }
-}
+);
 
-export const setSort = sortOption => {
-  return {
+export const setSort = sortOption => (
+  {
     type: actionTypes.SET_SORT,
-    sortOption
+    sortOption,
   }
-}
+);
