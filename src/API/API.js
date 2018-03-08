@@ -1,6 +1,6 @@
 const applyKeys = data => data.map((item, key) => ({ key, ...item }));
 
-export default () => fetch('https://gist.githubusercontent.com/creatifyme/2a334c00a117097bfdb47f031edf292c/raw/efb52ecf1cf92e2261f504ec7639c68b5ff390bd/cars.json')
+export default () => fetch('https://gist.githubusercontent.com/timmydoza/7aa003ffabf272dcfd953a37d61a18c5/raw/91f247fb0ad242bd0e7c37c52ce473770ce4541a/newcars.json')
   .then(data => data.json())
   .then(data => applyKeys(data));
 
