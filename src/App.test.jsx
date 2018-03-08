@@ -4,7 +4,7 @@ import App from './App';
 
 jest.mock('./API/API');
 
-describe('the carFiner app', () => {
+describe('the carFinder app', () => {
   it('should render correctly', (done) => {
     const app = renderer.create(<App/>)
     setImmediate(() => { // To deal with the promise in mock API;
