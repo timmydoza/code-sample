@@ -13,6 +13,8 @@ const CarModal = (props) => {
     },
   );
 
+  const dateDisplay = (new Date(props.selectedCar.created_at)).toLocaleString();
+
   return (
     <div className={overlayClasses} onClick={() => props.selectCar({})}>
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
@@ -22,6 +24,7 @@ const CarModal = (props) => {
           <li>Make: {props.selectedCar.make}</li>
           <li>Model: {props.selectedCar.model}</li>
           <li>Mileage: {props.selectedCar.mileage}</li>
+          <li>Listing Date: {dateDisplay}</li>
         </ul>
         <img src={props.selectedCar.image_url} alt="" />
       </div>

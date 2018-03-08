@@ -8,6 +8,7 @@ const testCar = {
   year: 1999,
   mileage: 1234,
   image_url: 'image.jpg',
+  created_at: '2017-11-01T08:05:07.188Z'
 };
 
 const emptyObj = {};

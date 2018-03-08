@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the carFiner app should render correctly 1`] = `
+exports[`the carFinder app should render correctly 1`] = `
 <main
   className="grid"
 >
@@ -399,6 +399,10 @@ exports[`the carFiner app should render correctly 1`] = `
         </li>
         <li>
           Mileage: 
+        </li>
+        <li>
+          Listing Date: 
+          Invalid Date
         </li>
       </ul>
       <img

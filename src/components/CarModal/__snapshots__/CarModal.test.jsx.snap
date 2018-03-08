@@ -32,6 +32,10 @@ exports[`the CarModal component renders correctly 1`] = `
         Mileage: 
         1234
       </li>
+      <li>
+        Listing Date: 
+        11/1/2017, 4:05:07 AM
+      </li>
     </ul>
     <img
       alt=""
