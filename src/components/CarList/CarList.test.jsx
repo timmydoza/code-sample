@@ -16,6 +16,7 @@ const testProps = {
       year: 1999,
       mileage: 20000,
       image_url: 'test.jpg',
+      created_at: '2017-11-01T08:05:07.188Z'
     },
     {
       key: 2,
@@ -24,6 +25,7 @@ const testProps = {
       year: 1998,
       mileage: 20001,
       image_url: 'test2.jpg',
+      created_at: '2017-11-01T08:05:07.188Z'
     },
   ],
 };
