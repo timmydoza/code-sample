@@ -13,7 +13,7 @@ const CarModal = (props) => {
     },
   );
 
-  const dateDisplay = (new Date(props.selectedCar.created_at)).toLocaleString();
+  const dateDisplay = (new Date(props.selectedCar.created_at)).toLocaleString('en-US');
 
   return (
     <div className={overlayClasses} onClick={() => props.selectCar({})}>
