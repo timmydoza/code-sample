@@ -10,4 +10,4 @@ To see it in action, clone this repo and run `npm i` followed by `npm start`.
 To see the tests, run `npm test` or click on the build icon above.
 
 ### Demo
-See the demo [here](https://timmydoza.com/codechallenge).
+See the demo [here](https://timmydoza.com/code-sample).
