@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/timmydoza/codechallenge.svg?branch=master)](https://travis-ci.org/timmydoza/codechallenge)
+[![Build Status](https://travis-ci.org/timmydoza/code-sample.svg?branch=master)](https://travis-ci.org/timmydoza/code-sample)
 
 ## CarFinder
 

@@ -1,8 +1,8 @@
 {
-  "name": "codechallenge",
+  "name": "code-sample",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://timmydoza.com/codechallenge",
+  "homepage": "https://timmydoza.com/code-sample",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
