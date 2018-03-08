@@ -1,8 +1,8 @@
 import React from 'react';
-import CarFinder from './containers/CarFinder/CarFinder';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import CarFinder from './containers/CarFinder/CarFinder';
 import rootReducer from './store/reducers';
 
 const composeEnhancers =  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
